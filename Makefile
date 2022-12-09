@@ -39,7 +39,7 @@ stable: clean
 	@cp -R source $(STAGING_DIR)
 	@cd $(STAGING_DIR) && \
 	 docker build \
-		-t rpufky/steam:stable \
+		-t thetestgame/steam:stable \
 		.
 	@echo
 	@echo 'Remember to push to hub: docker push rpufky/steam:stable'
@@ -62,7 +62,7 @@ latest: clean
 	@cp -R source $(STAGING_DIR)
 	@cd $(STAGING_DIR) && \
 	 docker build \
-		-t rpufky/steam:latest -t rpufky/steam:winehq \
+		-t thetestgame/steam:latest -t thetestgame/steam:winehq \
 		.
 	@echo
 	@echo 'Remember to push to hub: docker push rpufky/steam:latest'
@@ -85,7 +85,7 @@ experimental: clean
 	@cp -R source $(STAGING_DIR)
 	@cd $(STAGING_DIR) && \
 	 docker build \
-		-t rpufky/steam:experimental \
+		-t thetestgame/steam:experimental \
 		.
 	@echo
 
