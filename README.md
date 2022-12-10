@@ -26,9 +26,9 @@ After launching the container:
 ## Example Configurations
 Fully working examples of different dedicated servers.
 
-* [Left 4 Dead (w/ SourceMod,MetaMod)](https://github.com/r-pufky/steam/blob/master/docs/examples/left-4-dead.md) Linux Server
-* [Left 4 Dead 2 (w/ SourceMod,MetaMod)](https://github.com/r-pufky/steam/blob/master/docs/examples/left-4-dead-2.md) Linux Server
-* [Conan Exiles](https://github.com/r-pufky/steam/blob/master/docs/examples/conan-exiles.md) Windows Server
+* [Left 4 Dead (w/ SourceMod,MetaMod)](https://github.com/thetestgame/steam/blob/master/docs/examples/left-4-dead.md) Linux Server
+* [Left 4 Dead 2 (w/ SourceMod,MetaMod)](https://github.com/thetestgame/steam/blob/master/docs/examples/left-4-dead-2.md) Linux Server
+* [Conan Exiles](https://github.com/thetestgame/steam/blob/master/docs/examples/conan-exiles.md) Windows Server
 
 ## Version Tags
 
@@ -398,4 +398,4 @@ and/or other countries.
 [3n]: https://github.com/alinmear/docker-conanexiles/blob/master/src/etc/supervisor/conf.d/conanexiles.conf
 [2k]: https://docs.docker.com/compose/compose-file/#stop_grace_period
 [6h]: https://developer.valvesoftware.com/wiki/SteamCMD
-[f8]: https://raw.githubusercontent.com/r-pufky/steam/master/media/steam-icon-logo.png
+[f8]: https://raw.githubusercontent.com/thetestgame/steam/master/media/steam-icon-logo.png
