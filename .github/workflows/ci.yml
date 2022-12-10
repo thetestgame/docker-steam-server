@@ -1,26 +1,31 @@
 name: Build Steam Docker Image and Deploy
-
 on:
+  # Run on every main branch push
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
+    
+  # Run every Monday at 1PM UTC (9AM EST)
+  schedule:
+    - cron: "0 13 * * 1"
+    
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
 
+    # Build all supported container images
     - name: Build Containers
       run: make all
 
+    # Authenticate with DockerHub prior to publishing
     - name: Login to DockerHub
       uses: docker/login-action@v1
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
     
+    # Publish our built container images
     - name: Push docker images to DockerHub
       run: |
         docker push thetestgame/steam:stable
