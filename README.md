@@ -398,4 +398,4 @@ and/or other countries.
 [3n]: https://github.com/alinmear/docker-conanexiles/blob/master/src/etc/supervisor/conf.d/conanexiles.conf
 [2k]: https://docs.docker.com/compose/compose-file/#stop_grace_period
 [6h]: https://developer.valvesoftware.com/wiki/SteamCMD
-[f8]: https://raw.githubusercontent.com/thetestgame/steam/master/media/steam-icon-logo.png
+[f8]: https://raw.githubusercontent.com/thetestgame/steam-docker/main/media/steam-icon-logo.png
