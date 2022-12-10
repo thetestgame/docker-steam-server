@@ -9,7 +9,8 @@ on:
     - cron: "0 13 * * 1"
     
 jobs:
-  build-deploy:
+  # Deploy a new image to DockerHub
+  build-and-publish-dockerhub:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -32,3 +33,16 @@ jobs:
         docker push thetestgame/steam:latest
         docker push thetestgame/steam:winehq
         docker push thetestgame/steam:experimental
+
+  # Update our DockerHub README
+  docker-hub-description:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Docker Hub Description
+        uses: peter-evans/dockerhub-description@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          repository: thetestgame/steam
