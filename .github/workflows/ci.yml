@@ -34,6 +34,9 @@ jobs:
         docker push thetestgame/steam:winehq
         docker push thetestgame/steam:experimental
 
+    # Keep the workflow alive
+    - uses: gautamkrishnar/keepalive-workflow@v1 # using the workflow with default settings
+
   # Update our DockerHub README
   docker-hub-description:
     runs-on: ubuntu-latest
