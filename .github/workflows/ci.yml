@@ -29,10 +29,28 @@ jobs:
     # Publish our built container images
     - name: Push docker images to DockerHub
       run: |
+        # Push the default tags to DockerHub
         docker push thetestgame/steam:stable
         docker push thetestgame/steam:latest
         docker push thetestgame/steam:winehq
         docker push thetestgame/steam:experimental
+
+        # Only add SHA tags if the event is a push to the main branch
+        if [[ $GITHUB_EVENT_NAME == 'push' && $GITHUB_REF == 'refs/heads/main' ]]; then
+          # Retrieve the short SHA
+          SHORT_SHA=$(git rev-parse --short HEAD)
+
+          # Tag and push the images with the new tags
+          docker tag thetestgame/steam:stable thetestgame/steam:stable-$SHORT_SHA
+          docker tag thetestgame/steam:latest thetestgame/steam:latest-$SHORT_SHA
+          docker tag thetestgame/steam:winehq thetestgame/steam:winehq-$SHORT_SHA
+          docker tag thetestgame/steam:experimental thetestgame/steam:experimental-$SHORT_SHA
+
+          docker push thetestgame/steam:stable-$SHORT_SHA
+          docker push thetestgame/steam:latest-$SHORT_SHA
+          docker push thetestgame/steam:winehq-$SHORT_SHA
+          docker push thetestgame/steam:experimental-$SHORT_SHA
+        fi
 
     # Keep the workflow alive
     - uses: gautamkrishnar/keepalive-workflow@v1 # using the workflow with default settings
