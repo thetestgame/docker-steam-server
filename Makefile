@@ -42,7 +42,7 @@ stable: clean
 		-t thetestgame/steam:stable \
 		.
 	@echo
-	@echo 'Remember to push to hub: docker push rpufky/steam:stable'
+	@echo 'Remember to push to hub: docker push thetestgame/steam:stable'
 
 latest: clean
 	@echo 'Building steam ubuntu container using wine STABLE latest from winehq repo ...'
@@ -65,7 +65,7 @@ latest: clean
 		-t thetestgame/steam:latest -t thetestgame/steam:winehq \
 		.
 	@echo
-	@echo 'Remember to push to hub: docker push rpufky/steam:latest'
+	@echo 'Remember to push to hub: docker push thetestgame/steam:latest'
 
 experimental: clean
 	@echo 'Building steam ubuntu container using wine STAGING latest from winehq repo ...'

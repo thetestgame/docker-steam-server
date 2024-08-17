@@ -12,7 +12,7 @@ version: "3"
 
 services:
   conan:
-    image:             rpufky/steam:stable
+    image:             thetestgame/steam:stable
     restart:           unless-stopped
     stop_grace_period: 1m
     container_name:    conan
