@@ -2,6 +2,8 @@
 
 > This is **NOT** an official Valve steam docker container.
 
+[![Build Steam Docker Image and Deploy](https://github.com/thetestgame/steam-docker/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/thetestgame/steam-docker/actions/workflows/ci.yml)
+
 Generic Steam dedicated server using Docker.
 
 This provides a core installation of `steamcmd` to host dedicated servers. Both
