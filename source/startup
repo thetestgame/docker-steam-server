@@ -22,6 +22,7 @@ if [ ${UPDATE_OS} -eq 1 ]; then
   echo 'Updating image OS ...'
   apt-get --quiet update && apt-get --quiet --yes upgrade
 fi
+
 if [ ${UPDATE_STEAM} -eq 1 ]; then
   echo '--------------------------------------'
   echo "Updating steamcmd for ${PLATFORM} ..."
@@ -30,6 +31,7 @@ if [ ${UPDATE_STEAM} -eq 1 ]; then
     +login anonymous \
     +quit"
 fi
+
 if [ ${UPDATE_SERVER} -eq 1 ]; then
   echo '--------------------------------------'
   echo "Updating app ${STEAM_APP_ID} ..."

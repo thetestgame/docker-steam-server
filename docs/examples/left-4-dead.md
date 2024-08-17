@@ -12,7 +12,7 @@ version: "3"
 
 services:
   l4d:
-    image:             rpufky/steam:stable
+    image:             thetestgame/steam:stable
     restart:           unless-stopped
     container_name:    l4d
     ports:
