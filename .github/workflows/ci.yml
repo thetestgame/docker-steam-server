@@ -52,6 +52,23 @@ jobs:
           docker push thetestgame/steam:experimental-$SHORT_SHA
         fi
 
+    # Publish our built container images to the Github Container Registry
+    - name: Publish to Github Container Registry
+      run: |
+        # Authenticate with the Github Container Registry
+        echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+        # Tag and push the images to the Github Container Registry
+        docker tag thetestgame/steam:stable ghcr.io/thetestgame/steam-docker:stable
+        docker tag thetestgame/steam:latest ghcr.io/thetestgame/steam-docker:latest
+        docker tag thetestgame/steam:winehq ghcr.io/thetestgame/steam-docker:winehq
+        docker tag thetestgame/steam:experimental ghcr.io/thetestgame/steam-docker:experimental
+
+        docker push ghcr.io/thetestgame/steam-docker:stable
+        docker push ghcr.io/thetestgame/steam-docker:latest
+        docker push ghcr.io/thetestgame/steam-docker:winehq
+        docker push ghcr.io/thetestgame/steam-docker:experimental
+
     # Keep the workflow alive
     - uses: gautamkrishnar/keepalive-workflow@v1 # using the workflow with default settings
 
