@@ -12,6 +12,9 @@ jobs:
   # Deploy a new image to DockerHub
   build-and-publish-dockerhub:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
     - uses: actions/checkout@v4
 
@@ -27,7 +30,7 @@ jobs:
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
     
     # Publish our built container images
-    - name: Push docker images to DockerHub
+    - name: Push Docker images to DockerHub
       run: |
         # Push the default tags to DockerHub
         docker push thetestgame/steam:stable
@@ -53,7 +56,7 @@ jobs:
         fi
 
     # Publish our built container images to the Github Container Registry
-    - name: Publish to Github Container Registry
+    - name: Push to Github Container Registry
       run: |
         # Authenticate with the Github Container Registry
         echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
