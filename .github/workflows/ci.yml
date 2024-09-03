@@ -75,22 +75,6 @@ jobs:
     # Keep the workflow alive
     - uses: gautamkrishnar/keepalive-workflow@v1 # using the workflow with default settings
 
-    # Create/Update our local last-built.txt file and commit it back
-    # to the repository for remote monitoring.
-    - name: Update last-built.txt
-      run: |
-        echo "Last built: $(date)" > last-built.txt
-
-    - uses: stefanzweifel/git-auto-commit-action@v5
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        commit_message: 'ci: Update last-built.txt'
-        branch: main
-        commit_user_name: Github-Actions 🤖
-        commit_user_email: actions@github.com
-        commit_author: Github-Actions🤖 <actions@github.com>
-
   # Update our DockerHub README
   docker-hub-description:
     runs-on: ubuntu-latest
