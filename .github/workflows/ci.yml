@@ -54,8 +54,6 @@ jobs:
           docker push thetestgame/steam:winehq-$SHORT_SHA
           docker push thetestgame/steam:experimental-$SHORT_SHA
         fi
-    # Keep the workflow alive
-    - uses: gautamkrishnar/keepalive-workflow@v1 # using the workflow with default settings
 
   # Update our DockerHub README
   docker-hub-description:
